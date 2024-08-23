@@ -51,6 +51,16 @@ at_path[6] = self.hname #人の知見
 ```
 $ python3 -m torch.distributed.launch --nproc_per_node=4 --use_env main_hft.py --model deit_small_patch16_224_12_hum_00 --mixup 0.0 --cutmix 0.0 --batch-size 128 --epochs 100 --num_workers 40 --data-path $PATH --data-set CUBATT --human --hname $HUM_NAME --finetune $SAVED_PATH --output_dir $SAVE_PATH
 ```
+--finetuneの$SAVED_PATHには前段のCUB-200-2011で学習したモデルのcheckpointのパスを入力してください．
+
 --hnameの#HUM_NAMEにはCUB-GHAのディレクトリ名を有力してください．
 
 CUBGHA_rename.pyを使用した場合はGHAと入力してください．
+
+## 評価用コマンド
+```
+python main.py --eval --device cuda:1 --resume #SAVED_PATH --model deit_small_patch16_224_12 --data-path $PATH --data-set CUB
+```
+--finetuneの$SAVED_PATHには評価したモデルのcheckpointのパスを入力してください．
+
+--data-pathの$PATHにはデータセットのパスを入力してください．
