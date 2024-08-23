@@ -1,11 +1,6 @@
 # Reactive-Bias
 
 ## Requirements
-```
-pip3 install -r requirements.txt
-```
-The code was tested with Python 3.8.10
-
 学習・評価用のデータセットは以下からダウンロードしてください
 
 CUB-200-2011:https://github.com/cyizhuo/CUB-200-2011-dataset
