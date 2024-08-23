@@ -39,6 +39,12 @@ $ python3 -m torch.distributed.launch --nproc_per_node=4 --use_env main.py --mod
 
 ## 人の知見の組み込み
 CUB-200-2011で学習したモデルへ人の知見を組み込みます．
+コマンドを実行する前にdatasets.py 71行の以下のat_path[6]の部分がCUB-200-2011のtrainに対応するように変更してください．
+```
+# print(at_path[6])
+at_path[6] = self.hname #人の知見
+```
+
 ```
 $ python3 -m torch.distributed.launch --nproc_per_node=4 --use_env main_hft.py --model deit_small_patch16_224_12_hum_00 --mixup 0.0 --cutmix 0.0 --batch-size 128 --epochs 100 --num_workers 40 --data-path $PATH --data-set CUBATT --human --hname $HUM_NAME --finetune $SAVED_PATH --output_dir $SAVE_PATH
 ```
