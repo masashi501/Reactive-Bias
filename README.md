@@ -41,5 +41,5 @@ CUB-200-2011で学習したモデルへ人の知見を組み込みます．
 ```
 $ python3 -m torch.distributed.launch --nproc_per_node=4 --use_env main_hft.py --model deit_small_patch16_224_12_hum_00 --mixup 0.0 --cutmix 0.0 --batch-size 128 --epochs 100 --num_workers 40 --data-path $PATH --data-set CUBATT --human --hname $HUM_NAME --finetune $SAVED_PATH --output_dir $SAVE_PATH
 ```
---hnameのHUM_NAMEにはCUB-GHAのディレクトリ名を有力してください．
+--hnameの#HUM_NAMEにはCUB-GHAのディレクトリ名を有力してください．
 CUBGHA_rename.pyを使用した場合はGHAと入力してください．
